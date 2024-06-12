@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
-import {Slot, SplashScreen} from 'expo-router'
-import {useFonts} from 'expo-font'
+import { Slot, SplashScreen } from 'expo-router'
+import { useFonts } from 'expo-font'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -18,12 +18,12 @@ const RootLayout = () => {
     "Poppins-Thin": require("../assets/fonts/Poppins-Thin.ttf"),
   });
 
-  useEffect(()=> {
+  useEffect(() => {
     if (error) throw error
-    if(fontsLoaded) SplashScreen.hideAsync();
-  },[fontsLoaded, error])
+    if (fontsLoaded) SplashScreen.hideAsync();
+  }, [fontsLoaded, error])
 
-  if(!fontsLoaded && !error) return null;
+  if (!fontsLoaded && !error) return null;
 
   return (
     <Slot />
