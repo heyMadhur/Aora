@@ -21,8 +21,10 @@ const SignUp = () => {
     setIsSubmitting(true)
     try{
       const result= await createUser(form.email, form.password, form.username)
-
+      
       // Set it to Global state using Context
+      setrUser(result)
+      setIsLogged(true)
 
       // Navigate to Home Page
       router.replace('/home')
