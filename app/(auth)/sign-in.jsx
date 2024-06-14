@@ -6,12 +6,15 @@ import FormField from '../../components/FormField'
 import CustomButton from '../../components/CustomButton'
 import { Link, router } from 'expo-router'
 import { getCurrentUser, signIn } from '../../lib/appwrite'
+import { useGlobalContext } from '../../context/GlobalProvider'
 
 const SignIn = () => {
   const [form, setForm] = useState({
     email: '',
     password: ''
   })
+
+  const {setUser, setIsLoggedIn}= useGlobalContext();
 
   const submit = async() => {
     if(!form.email || !form.password) {
@@ -24,7 +27,7 @@ const SignIn = () => {
 
       // Set it to Global state using Context
       setUser(result)
-      setIsLogged(true)
+      setIsLoggedIn(true)
 
       // Navigate to Home Page
       router.replace('/home')
